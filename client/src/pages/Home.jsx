@@ -1,8 +1,11 @@
-
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Receive logged-in user information from CustomerDashboard
+  const user = location.state?.user;
 
   const services = [
     {
@@ -98,7 +101,11 @@ export default function Home() {
 
             <div className="mt-9 flex flex-wrap gap-4">
               <button
-                onClick={() => navigate("/Booking")}
+                onClick={() =>
+                  navigate("/Booking", {
+                    state: { user },
+                  })
+                }
                 className="rounded-xl bg-cyan-400 px-7 py-3.5 font-bold text-slate-950 shadow-lg transition hover:-translate-y-1 hover:bg-cyan-300"
               >
                 Book Assistance →
@@ -197,7 +204,10 @@ export default function Home() {
               <button
                 onClick={() =>
                   navigate("/Booking", {
-                    state: { service: item.service },
+                    state: {
+                      user,
+                      service: item.service,
+                    },
                   })
                 }
                 className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-3 font-semibold text-white transition hover:bg-blue-800"
@@ -289,7 +299,11 @@ export default function Home() {
         </p>
 
         <button
-          onClick={() => navigate("/Booking")}
+          onClick={() =>
+            navigate("/Booking", {
+              state: { user },
+            })
+          }
           className="mt-8 rounded-xl bg-white px-8 py-3.5 font-bold text-blue-800 shadow-lg transition hover:-translate-y-1 hover:bg-blue-50"
         >
           Book Your Service →
