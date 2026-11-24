@@ -1,6 +1,6 @@
 
-import  React,{ useState, useEffect } from "react";
-import  { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import {
   MapPin,
@@ -76,6 +76,20 @@ function Booking() {
   const [submitting, setSubmitting] = useState(false);
 
   const userId = user?.id;
+
+  // Get the type of the currently selected vehicle
+  const selectedVehicleDetails = vehicles.find(
+    item => String(item.id) === selectedVehicle
+  );
+
+  const selectedVehicleType =
+    selectedVehicle === "new"
+      ? vehicleType
+      : selectedVehicleDetails?.vehicle_type;
+
+  const isBike =
+    selectedVehicleType?.toLowerCase().includes("bike") ||
+    selectedVehicleType?.toLowerCase().includes("motorcycle");
 
   useEffect(() => {
     if (!userId) return;
@@ -380,7 +394,11 @@ function Booking() {
             {/* Vehicle details */}
             <div>
               <h3 className="mb-4 flex items-center gap-2 font-bold text-slate-800">
-                <Car size={19} className="text-blue-600" />
+                {isBike ? (
+                  <Bike size={19} className="text-blue-600" />
+                ) : (
+                  <Car size={19} className="text-blue-600" />
+                )}
                 Vehicle Information
               </h3>
 
@@ -449,7 +467,7 @@ function Booking() {
                       value={registrationNumber}
                       onChange={e => setRegistrationNumber(e.target.value)}
                       placeholder="Enter registration number"
-                      className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-blue-500"
+                      className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue-500"
                     />
                   </div>
                 </div>
