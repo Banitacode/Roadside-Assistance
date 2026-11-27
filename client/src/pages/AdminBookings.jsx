@@ -20,7 +20,7 @@ export default function AdminBookings() {
     useEffect (()=>{
     const fetchBookings = async () =>{
     try {
-      const response = await fetch('http://localhost:3001/bookings');
+      const response = await fetch('https://roadside-assistance-il83.onrender.com/bookings');
       const data = await response.json();
       setBookings(data);
       console.log(data);
@@ -31,7 +31,7 @@ export default function AdminBookings() {
     }
     const fetMechanics = async ()=>{
       try{
-        const response = await fetch(`http://localhost:3001/mechanics`)
+        const response = await fetch(`https://roadside-assistance-il83.onrender.com/mechanics`)
         if(!response.ok){
           throw new Error('Unable to fetch mechanics')
         }
@@ -61,7 +61,7 @@ export default function AdminBookings() {
     ).length;
     const updateBookingStatus = async (id,newStatus) => {
       try{
-        const response = await fetch(`http://localhost:3001/bookings/${id}`,
+        const response = await fetch(`https://roadside-assistance-il83.onrender.com/bookings/${id}`,
           {
             method:'PUT',
             headers:{
@@ -95,7 +95,7 @@ export default function AdminBookings() {
       }
       try {
       const response = await fetch(
-        `http://localhost:3001/bookings/${bookingId}/assign`,
+        `https://roadside-assistance-il83.onrender.com/bookings/${bookingId}/assign`,
         {
         method:'PUT',
         headers:{

@@ -33,7 +33,7 @@ export default function MechanicDashboard() {
         setError("");
 
         const response = await fetch(
-          `http://localhost:3001/mechanics/${mechanicId}/bookings`
+          `https://roadside-assistance-il83.onrender.com/mechanics/${mechanicId}/bookings`
         );
 
         if (!response.ok) {
@@ -57,7 +57,7 @@ export default function MechanicDashboard() {
     const fetchMechanicPrice = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3001/mechanics"
+          "https://roadside-assistance-il83.onrender.com/mechanics"
         );
 
         if (!response.ok) {
@@ -91,7 +91,7 @@ export default function MechanicDashboard() {
       setProcessingId(bookingId);
 
       const response = await fetch(
-        `http://localhost:3001/bookings/${bookingId}/${actionUrls[action]}`,
+        `https://roadside-assistance-il83.onrender.com/bookings/${bookingId}/${actionUrls[action]}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

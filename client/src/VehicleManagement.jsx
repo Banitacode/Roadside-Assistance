@@ -33,7 +33,7 @@ export default function VehicleManagement() {
       return;
     }
 
-    fetch(`http://localhost:3001/users/${userId}/vehicles`)
+    fetch(`https://roadside-assistance-il83.onrender.com/users/${userId}/vehicles`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Unable to load vehicles.');
@@ -62,7 +62,7 @@ export default function VehicleManagement() {
     setSaving(true);
 
     try {
-      const response = await fetch('http://localhost:3001/vehicles', {
+      const response = await fetch('https://roadside-assistance-il83.onrender.com/vehicles', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

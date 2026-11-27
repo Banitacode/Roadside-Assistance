@@ -26,7 +26,7 @@ export default function AdminReport() {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:3001/admin/reports");
+      const response = await fetch("https://roadside-assistance-il83.onrender.com/admin/reports");
 
       if (!response.ok) {
         throw new Error("Unable to fetch reports. Please try again.");

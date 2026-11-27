@@ -42,7 +42,7 @@ export default function Register() {
     try {
       setLoading(true);
 
-      const response = await fetch('http://localhost:3001/register', {
+      const response = await fetch('https://roadside-assistance-il83.onrender.com/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -26,7 +26,7 @@ export default function AdminComplaints() {
     try {
       setError("");
 
-      const response = await fetch("http://localhost:3001/complaints");
+      const response = await fetch("https://roadside-assistance-il83.onrender.com/complaints");
 
       if (!response.ok) {
         throw new Error("Unable to fetch complaints");
@@ -51,7 +51,7 @@ export default function AdminComplaints() {
       setUpdatingId(id);
 
       const response = await fetch(
-        `http://localhost:3001/complaints/${id}`,
+        `https://roadside-assistance-il83.onrender.com/complaints/${id}`,
         {
           method: "PUT",
           headers: {

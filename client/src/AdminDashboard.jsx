@@ -32,7 +32,7 @@ export default function AdminDashboard() {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:3001/bookings");
+      const response = await fetch("https://roadside-assistance-il83.onrender.com/bookings");
 
       if (!response.ok) {
         throw new Error("Unable to fetch bookings");

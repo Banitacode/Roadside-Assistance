@@ -94,7 +94,7 @@ function Booking() {
   useEffect(() => {
     if (!userId) return;
 
-    fetch(`http://localhost:3001/users/${userId}/vehicles`)
+    fetch(`https://roadside-assistance-il83.onrender.com/users/${userId}/vehicles`)
       .then(response => {
         if (!response.ok) {
           throw new Error("Unable to fetch vehicles");
@@ -163,7 +163,7 @@ function Booking() {
     setLoadingMechanics(true);
 
     try {
-      const response = await fetch("http://localhost:3001/mechanics");
+      const response = await fetch("https://roadside-assistance-il83.onrender.com/mechanics");
 
       if (!response.ok) {
         throw new Error("Unable to fetch mechanics");
@@ -223,7 +223,7 @@ function Booking() {
 
       if (selectedVehicle === "new") {
         const vehicleResponse = await fetch(
-          "http://localhost:3001/vehicles",
+          "https://roadside-assistance-il83.onrender.com/vehicles",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -270,7 +270,7 @@ function Booking() {
         longitude
       };
 
-      const response = await fetch("http://localhost:3001/booking", {
+      const response = await fetch("https://roadside-assistance-il83.onrender.com/booking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

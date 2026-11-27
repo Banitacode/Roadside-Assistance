@@ -40,7 +40,7 @@ export default function AdminMechanics() {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:3001/mechanics");
+      const response = await fetch("https://roadside-assistance-il83.onrender.com/mechanics");
 
       if (!response.ok) {
         throw new Error("Unable to fetch mechanic details");
@@ -63,7 +63,7 @@ export default function AdminMechanics() {
   const verifyMechanic = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/mechanics/${id}/verification`,
+        `https://roadside-assistance-il83.onrender.com/mechanics/${id}/verification`,
         {
           method: "PUT",
           headers: {
@@ -98,7 +98,7 @@ export default function AdminMechanics() {
   const saveMechanic = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/mechanics/${editingMechanic.id}`,
+        `https://roadside-assistance-il83.onrender.com/mechanics/${editingMechanic.id}`,
         {
           method: "PUT",
           headers: {
@@ -153,7 +153,7 @@ export default function AdminMechanics() {
 
     try {
       const response = await fetch(
-        `http://localhost:3001/mechanics/${id}`,
+        `https://roadside-assistance-il83.onrender.com/mechanics/${id}`,
         {
           method: "DELETE"
         }
@@ -189,7 +189,7 @@ export default function AdminMechanics() {
 
     try {
       const response = await fetch(
-        "http://localhost:3001/mechanics",
+        "https://roadside-assistance-il83.onrender.com/mechanics",
         {
           method: "POST",
           headers: {

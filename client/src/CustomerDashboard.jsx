@@ -50,7 +50,7 @@ export default function CustomerDashboard() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3001/mechanics')
+    fetch('https://roadside-assistance-il83.onrender.com/mechanics')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Unable to fetch mechanics');
@@ -84,7 +84,7 @@ export default function CustomerDashboard() {
       return;
     }
 
-    fetch('http://localhost:3001/bookings')
+    fetch('https://roadside-assistance-il83.onrender.com/bookings')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Unable to fetch bookings');
@@ -139,7 +139,7 @@ export default function CustomerDashboard() {
       setSubmittingFeedback(booking.id);
 
       const response = await fetch(
-        `http://localhost:3001/bookings/${booking.id}/feedback`,
+        `https://roadside-assistance-il83.onrender.com/bookings/${booking.id}/feedback`,
         {
           method: 'POST',
           headers: {
@@ -195,7 +195,7 @@ export default function CustomerDashboard() {
       setSubmittingComplaint(booking.id);
 
       const response = await fetch(
-        'http://localhost:3001/complaints',
+        'https://roadside-assistance-il83.onrender.com/complaints',
         {
           method: 'POST',
           headers: {

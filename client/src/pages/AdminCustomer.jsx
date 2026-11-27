@@ -22,7 +22,7 @@ export default function AdminCustomer() {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:3001/users");
+      const response = await fetch("https://roadside-assistance-il83.onrender.com/users");
 
       if (!response.ok) {
         throw new Error("Unable to fetch customers");
