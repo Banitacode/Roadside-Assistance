@@ -173,17 +173,29 @@ export default function AdminDashboard() {
           </ul>
         </nav>
 
-        <div className="p-5 border-t border-slate-800">
-          <div className="flex items-center gap-3 text-slate-300">
-            <div className="bg-slate-800 p-2 rounded-lg">
-              <LogOut size={19} />
-            </div>
-            <div>
-              <p className="text-sm font-semibold">Admin Panel</p>
-              <p className="text-xs text-slate-500">Roadside Assistance</p>
-            </div>
-          </div>
-        </div>
+        
+<div className="p-5 border-t border-slate-800">
+  <button
+    type="button"
+    onClick={() => navigate("/Login", {
+      replace: true,
+      state: null
+    })}
+    className="w-full flex items-center gap-3 text-slate-300 hover:bg-slate-800 hover:text-white p-3 rounded-xl transition duration-200"
+  >
+    <div className="bg-slate-800 p-2 rounded-lg">
+      <LogOut size={19} />
+    </div>
+
+    <div className="text-left">
+      <p className="text-sm font-semibold">Logout</p>
+      <p className="text-xs text-slate-500">
+        Return to Login
+      </p>
+    </div>
+  </button>
+</div>
+
       </aside>
 
       {/* Main Content */}

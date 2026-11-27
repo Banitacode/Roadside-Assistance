@@ -1097,6 +1097,9 @@ app.get("/admin/reports", async (req, res) => {
 
 
 // START SERVER
-app.listen(3001, () => {
-  console.log("Server is running on port 3001");
+// START SERVER
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

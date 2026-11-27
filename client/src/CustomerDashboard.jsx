@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   User,
   Phone,
@@ -17,11 +17,13 @@ import {
   ClipboardList,
   PlusCircle,
   LoaderCircle,
-  ShieldCheck
+  ShieldCheck,
+  LogOut
 } from 'lucide-react';
 
 export default function CustomerDashboard() {
   const location = useLocation();
+  const navigate = useNavigate();
   const user = location.state?.user;
 
   const [mechanics, setMechanics] = useState([]);
@@ -38,6 +40,14 @@ export default function CustomerDashboard() {
   const [complaintInputs, setComplaintInputs] = useState({});
   const [submittingComplaint, setSubmittingComplaint] = useState(null);
   const [submittedComplaints, setSubmittedComplaints] = useState({});
+
+  // Logout customer and return to Login page
+  const handleLogout = () => {
+    navigate('/Login', {
+      replace: true,
+      state: null
+    });
+  };
 
   useEffect(() => {
     fetch('http://localhost:3001/mechanics')
@@ -262,7 +272,7 @@ export default function CustomerDashboard() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <div className="bg-slate-800 rounded-full p-2">
               <User size={21} className="text-blue-300" />
             </div>
@@ -275,7 +285,7 @@ export default function CustomerDashboard() {
               </p>
             </div>
 
-            {/* Home Link - passes logged-in user to Home */}
+            {/* Home Link */}
             <Link
               to="/"
               state={{ user }}
@@ -283,6 +293,16 @@ export default function CustomerDashboard() {
             >
               Home
             </Link>
+
+            {/* Logout Button */}
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
+            >
+              <LogOut size={18} />
+              Logout
+            </button>
           </div>
         </div>
       </header>
